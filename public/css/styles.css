@@ -106,7 +106,7 @@ main {
 
 .spotcar {
   display: grid;
-  grid-template-columns: 1rem, 1rem;
+  grid-template-columns: 1rem;
 }
 
 .carimg {
