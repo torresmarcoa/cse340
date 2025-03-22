@@ -47,7 +47,9 @@ h1 {
 
 .title {
   text-decoration: none;
-  font-size: larger;
+  color: var(--primaryColor);
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 #tools a {
@@ -233,6 +235,45 @@ picture {
 }
 /*End of grid view*/
 
+/* Details View */
+.detailsTitle {
+  font-family: var(--font-body);
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+#singleView-display {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.singleImg img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.8);
+
+}
+
+.singleImg img:hover {
+  transform: scale(1.1);
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 1);
+}
+
+.details h2{
+  margin-top: 0;
+}
+
+.details {
+  max-width: 50rem;
+}
+/* End of details View */
+
 /*Footer style*/
 footer {
   padding: 1rem;
@@ -313,5 +354,10 @@ footer {
     grid-template-rows: repeat(2, 9rem);
     width: max-content;
     margin: auto;
+  }
+
+  #singleView-display {
+    display: flex;
+    flex-direction: column;
   }
 }

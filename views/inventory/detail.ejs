@@ -1,0 +1,8 @@
+<%# If structure to determine the title %>
+<% if (title) { %>
+    <h1 class="detailsTitle"><%= title %></h1>
+    <% } else { res.redirect('/') } %>
+    
+    <%# messages() %>
+    
+    <%- view  %>
