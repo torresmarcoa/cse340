@@ -80,7 +80,7 @@ nav ul {
   padding-left: 0;
 }
 
-nav ul li a{
+nav ul li a {
   text-decoration: none;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
@@ -192,7 +192,7 @@ picture {
 
 .reviews li {
   font-size: x-large;
-  padding: .5rem 0 .5rem 0;
+  padding: 0.5rem 0 0.5rem 0;
 }
 /*End of body styles*/
 
@@ -216,7 +216,7 @@ picture {
   text-align: center;
   justify-content: center;
   width: 15rem;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, .5);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 #inv-display li a {
@@ -257,7 +257,6 @@ picture {
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.8);
-
 }
 
 .singleImg img:hover {
@@ -265,7 +264,7 @@ picture {
   box-shadow: 4px 8px 16px rgba(0, 0, 0, 1);
 }
 
-.details h2{
+.details h2 {
   margin-top: 0;
 }
 
@@ -273,6 +272,67 @@ picture {
   max-width: 50rem;
 }
 /* End of details View */
+
+/* Forms styles */
+.formstyle {
+  text-align: center;
+  background-color: var(--secondColor);
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 50%;
+  margin: auto;
+}
+
+.formstyle label {
+  font-size: 26px;
+}
+
+.mb {
+  margin-bottom: 10px;
+}
+
+input {
+  font-size: 15px;
+  padding: 0.5rem;
+  background-color: white;
+}
+
+input:required:valid {
+  background-color: lightgreen;
+}
+
+input:invalid:not(:placeholder-shown) {
+  background-color: lightcoral;
+}
+
+.formbutton {
+  padding: 0.3rem 1rem 0.3rem 1rem;
+  border-radius: 15px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.formbutton:hover {
+  background-color: var(--primaryColor);
+  color: white;
+  transform: scale(1.1);
+}
+
+.formstyle a {
+  color: white;
+}
+/* End form */
+
+/* Flash messages styles */
+.notice {
+  list-style: none;
+  text-align: center;
+  color: darkred;
+  padding: 0;
+}
+/* End of flash messages styles */
 
 /*Footer style*/
 footer {
@@ -330,7 +390,7 @@ footer {
     width: 100%;
   }
 
-  .upgradesAndReviews  {
+  .upgradesAndReviews {
     flex-direction: column;
     gap: 0;
     padding-top: 1rem;

@@ -1,0 +1,35 @@
+<script src="/js/script.js" defer></script>
+<h1 class="detailsTitle"><%= title || "Login" %></h1>
+
+<%- messages() %>
+
+<div class="formstyle">
+  <form action="">
+    <label for="account_email">Email:</label><br />
+    <input
+      type="email"
+      name="account_email"
+      id="account_email"
+      placeholder="someone@yourdomain.com"
+      required
+    /><br />
+    <label for="account_password">Password:</label><br />
+    <input
+      type="password"
+      name="account_password"
+      id="account_password"
+      required
+      placeholder="YourP@ssW0rd"
+      pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
+    /><br />
+    <button class="formbutton" id="showpassword" type="button">
+      Show Password
+    </button>
+    <p>
+      Passwords must be minimum of 12 characters and include 1 capital letter, 1
+      number and 1 special character
+    </p>
+    <button class="formbutton" type="submit">LOGIN</button>
+  </form>
+  <p>No account? <a href="/account/register">Sign-up</a></p>
+</div>
