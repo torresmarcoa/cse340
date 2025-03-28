@@ -323,6 +323,12 @@ input:invalid:not(:placeholder-shown) {
 .formstyle a {
   color: white;
 }
+
+#classificationList,
+textarea {
+  font-size: 15px;
+  padding: 0.5rem;
+}
 /* End form */
 
 /* Flash messages styles */
@@ -419,5 +425,9 @@ footer {
   #singleView-display {
     display: flex;
     flex-direction: column;
+  }
+
+  .formstyle {
+    width: 90%;
   }
 }
