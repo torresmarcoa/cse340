@@ -74,7 +74,7 @@ invCont.newClassification = async function (req, res) {
       "notice",
       `The ${classification_name} classification was successfully added!`
     );
-    res.status(201).render("/inventory/management.ejs", {
+    res.status(201).render("inventory/management", {
       title: "Vehicle Management",
       nav,
       errors: null,
@@ -126,7 +126,7 @@ invCont.newVehicle = async function (req, res) {
       "notice",
       `The ${inv_make} ${inv_model} was successfully added!`
     );
-    res.status(201).render("inventory/management.ejs", {
+    res.status(201).render("inventory/management", {
       title: "Vehicle Management",
       nav,
       errors: null,
