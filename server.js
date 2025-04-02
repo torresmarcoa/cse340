@@ -19,6 +19,7 @@ const utilities = require("./utilities/")
 const errorRoute = require("./routes/errorRoute");
 const session = require("express-session")
 const pool = require('./database/')
+const cookieParser = require("cookie-parser")
 
 /* ***********************
  * Middleware
@@ -40,6 +41,11 @@ app.use(function(req, res, next){
   res.locals.messages = require('express-messages')(req, res)
   next()
 })
+
+// Cookie parser Middleware
+app.use(cookieParser())
+
+app.use(utilities.checkJWTToken)
 
 // Process Registration
 app.use(bodyParser.json())

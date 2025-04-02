@@ -25,9 +25,10 @@ router.post(
   "/login",
   loingvalidate.loginRules(),
   loingvalidate.checklogData,
-  (req, res) => {
-    res.status(200).send('login process')
-  }
+  Util.handleErrors(accountController.accountLogin)
 )
+
+// Delivers success log in
+router.get("/", Util.checkLogin, Util.handleErrors(accountController.builSucessLogin))
 
 module.exports = router;

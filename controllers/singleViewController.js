@@ -10,7 +10,7 @@ const singleCont = {}
 singleCont.buildBySingleViewController = async function (req, res, next) {
     const inv_id = req.params.invId
     const result = await singleViewModel.getInventoryByInventoryId(inv_id)
-    const data = result.rows[0]
+    const data = result
     const view = await utilities.buildSingleView(data)
     let nav = await utilities.getNav()
     res.render("./inventory/detail", {
