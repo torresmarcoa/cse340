@@ -76,11 +76,7 @@ invCont.newClassification = async function (req, res) {
       "notice",
       `The ${classification_name} classification was successfully added!`
     );
-    res.status(201).render("inventory/management", {
-      title: "Vehicle Management",
-      nav,
-      errors: null,
-    });
+    res.redirect("/inv/")
   } else {
     req.flash(
       "notice",
