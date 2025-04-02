@@ -1,0 +1,59 @@
+<h1 class="detailsTitle"><%= title || "Delete Vehicle" %></h1>
+
+<%- messages() %> <% if (errors) { %>
+<ul class="notice">
+  <% errors.array().forEach(error => { %>
+  <li><%= error.msg %></li>
+  <% }) %>
+</ul>
+<% } %>
+
+<div class="formstyle">
+    <p>Confirm Deletion - The delete is permanent.</p>
+  <form action="/inv/delete" method="post">
+    <label for="inv_make">Make</label><br />
+    <input
+      type="text"
+      name="inv_make"
+      id="inv_make"
+      readonly
+      placeholder="Make"
+      value="<%= locals.inv_make %>"
+    /><br />
+    <label for="inv_model">Model</label><br />
+    <input
+      type="text"
+      name="inv_model"
+      id="inv_model"
+      readonly
+      placeholder="Model"
+      value="<%= locals.inv_model %>"
+    /><br />
+    <label for="inv_price">Price</label><br />
+    <input
+      type="number"
+      name="inv_price"
+      id="inv_price"
+      readonly
+      placeholder="100000"
+      value="<%= locals.inv_price %>"
+    /><br />
+    <label for="inv_year">Year</label><br />
+    <input
+      type="number"
+      name="inv_year"
+      id="inv_year"
+      readonly
+      placeholder="2025"
+      value="<%= locals.inv_year %>"
+    /><br />
+    <button type="submit">Delete Vehicle</button>
+    <input 
+      type="hidden" 
+      name="inv_id"
+      <% if(locals.inv_id) { %> 
+      value="<%= locals.inv_id %>"
+      <% } %>
+    >
+  </form>
+</div>
