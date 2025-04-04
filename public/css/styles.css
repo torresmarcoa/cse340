@@ -52,14 +52,27 @@ h1 {
   font-weight: bold;
 }
 
-#tools a {
+#tools .account {
   color: black;
   text-decoration: none;
   transition: transform 0.3s ease-in-out;
   display: inline-block;
 }
 
-#tools a:hover {
+#tools .accountName {
+  color: black;
+  text-decoration: none;
+}
+
+.logout {
+  color: var(--secondColor);
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out;
+  display: inline-block;
+}
+
+#tools .account:hover,
+.logout:hover {
   transform: scale(1.2);
 }
 /*End of header styles*/

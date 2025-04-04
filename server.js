@@ -20,7 +20,7 @@ const errorRoute = require("./routes/errorRoute");
 const session = require("express-session")
 const pool = require('./database/')
 const cookieParser = require("cookie-parser")
-
+const checkAccountInfo = require("./utilities/checkAccountInfo")
 /* ***********************
  * Middleware
  * ************************/
@@ -50,6 +50,9 @@ app.use(utilities.checkJWTToken)
 // Process Registration
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
+// Checks if the user is logged in and obtains the account name and type
+app.use(checkAccountInfo);
 
 /* ***********************
  * View Engine and Templates

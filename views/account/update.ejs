@@ -1,0 +1,70 @@
+<script src="/js/script.js" defer></script>
+
+<h1 class="detailsTitle"><%= title %></h1>
+
+<%- messages() %> <% if (errors) { %>
+<ul class="notice">
+  <% errors.array().forEach(error => { %>
+  <li><%= error.msg %></li>
+  <% }) %>
+</ul>
+<% } %>
+
+<div class="formstyle">
+  <form action="/account/update/" method="post">
+    <input type="hidden" name="account_id" value="<%= locals.accountId %>">
+    <label for="account_firstname">First Name:</label><br />
+    <input
+      class="mb"
+      type="text"
+      name="account_firstname"
+      id="account_firstname"
+      required
+      placeholder="Jhon"
+      value="<%= locals.account_firstname %>"
+    /><br />
+    <label for="account_lastname">Last Name:</label><br />
+    <input
+      class="mb"
+      type="text"
+      name="account_lastname"
+      id="account_lastname"
+      required
+      placeholder="Doe"
+      value="<%= locals.account_lastname %>"
+    /><br />
+    <label for="account_email">Email address:</label><br />
+    <input
+      class="mb"
+      type="email"
+      name="account_email"
+      id="account_email"
+      required
+      placeholder="someone@domain.com"
+      value="<%= locals.account_email %>"
+    /><br />
+    <button class="formbutton" type="submit">Update</button>
+  </form>
+  <form action="/account/update-password" method="post">
+    <input type="hidden" name="account_id" value="<%= locals.accountId %>">
+    <h3>Update Password</h3>
+    <h4>Your original password will be changed</h4>
+    <p>
+      Passwords must be minimum of 12 characters and include 1 capital letter, 1
+      number and 1 special character
+    </p>
+    <label for="account_password">Password:</label><br />
+    <input
+      type="password"
+      name="account_password"
+      id="account_password"
+      pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
+      placeholder="YourP@ssW0rd"
+      required
+    /><br />
+    <button class="formbutton" id="showpassword" type="button">
+      Show Password</button
+    ><br />
+    <button class="formbutton" type="submit">Change Password</button>
+  </form>
+</div>

@@ -1,9 +1,16 @@
 <header id="top-header">
-    <span class="siteName">
-      <img src="/images/site/icon.png" alt="CSE Motors Logo">
-      <a class="title" href="/" title="Return to home page">CSE Motors</a>
-    </span>
-    <div id="tools">
-      <a class="account" title="Click to log in" href="/account/login">My Account</a>
-    </div>
-  </header>
+  <span class="siteName">
+    <img src="/images/site/icon.png" alt="CSE Motors Logo" />
+    <a class="title" href="/" title="Return to home page">CSE Motors</a>
+  </span>
+  <div id="tools">
+    <% if (locals.loggedIn) { %>
+    <a class="accountName" href="/account">Welcome <%= locals.accountFirstName %></a>
+    <a class="logout" href="/account/logout">Logout</a>
+    <% } else { %>
+    <a class="account" title="Click to log in" href="/account/login"
+      >My Account</a
+    >
+    <% } %>
+  </div>
+</header>
