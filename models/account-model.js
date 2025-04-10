@@ -105,6 +105,18 @@ async function updateAccountPassword(account_id, account_password) {
   }
 }
 
+//Check all accounts 
+async function getAllAccounts() {
+  try  {
+    const result = await pool.query(
+      `SELECT * FROM public.account`
+    );
+    return result.rows;
+  } catch (error) {
+    throw new Error("Model error: " + error.message)
+  }
+};
+
 module.exports = {
   registerAccount,
   checkExistingEmail,
@@ -112,4 +124,5 @@ module.exports = {
   getAccountById,
   updateAccountProcess,
   updateAccountPassword,
+  getAllAccounts,
 };

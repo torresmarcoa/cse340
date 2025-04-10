@@ -1,0 +1,37 @@
+<h1 class="detailsTitle"><%= title %></h1>
+
+<%- messages() %> 
+
+    <div class="formstyle">
+        <form action="/dashboard/delete-user/" method="post">
+          <input hidden name="account_id" value="<%= locals.account_id %>" />
+          <label for="account_firstname">First Name:</label><br />
+          <input
+            readonly
+            class="mb"
+            type="text"
+            name="account_firstname"
+            id="account_firstname"
+            value="<%= locals.account_firstname %>"
+          /><br />
+          <label for="account_lastname">Last Name:</label><br />
+          <input
+            readonly
+            class="mb"
+            type="text"
+            name="account_lastname"
+            id="account_lastname"
+            value="<%= locals.account_lastname %>"
+          /><br />
+          <label for="account_email">Email address:</label><br />
+          <input
+            readonly
+            class="mb"
+            type="email"
+            name="account_email"
+            id="account_email"
+            value="<%= locals.account_email %>"
+          /><br />
+          <button class="formbutton" type="submit">Delete User</button>
+        </form>
+    </div>

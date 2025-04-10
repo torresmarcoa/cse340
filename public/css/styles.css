@@ -353,6 +353,27 @@ textarea {
 }
 /* End of flash messages styles */
 
+/* Admin Dashboard styles */
+.account-table {
+  text-align: center;
+  width: 90%;
+  border: solid 1px black;
+  margin: auto;
+}
+
+.account-table tbody td,
+.account-table thead th {
+  border: solid 1px black;
+}
+
+.select {
+  
+  font-size: 15px;
+  padding: 0.5rem 3rem 0.5rem 3rem;
+  background-color: white;
+}
+/* End of admin Dashboard styles */
+
 /*Footer style*/
 footer {
   padding: 1rem;

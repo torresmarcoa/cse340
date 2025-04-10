@@ -175,12 +175,50 @@ Util.checkLogin = (req, res, next) => {
  *  Checks account type
  * ************************************ */
 Util.checkIfAdminOrEmployee = (req, res, next) => {
-  if(res.locals.accountType === "Admin" || res.locals.accountType === "Employee") {
+  if (
+    res.locals.accountType === "Admin" ||
+    res.locals.accountType === "Employee"
+  ) {
     next();
   } else {
-    req.flash("notice", "Please Login with a employee or admin account")
+    req.flash("notice", "Please Login with a employee or admin account");
     return res.redirect("/account/login");
   }
-}
+};
+
+Util.checkIfAdmin = (req, res, next) => {
+  if (res.locals.accountType === "Admin") {
+    next();
+  } else {
+    req.flash("notice", "Please Login with an admin account");
+    return res.redirect("/account/login");
+  }
+};
+
+/* ****************************************
+ * Build a list of all users for admin view
+ * ************************************ */
+Util.buildAccountList = async function (accounts) {
+  let html = '<table class="account-table">';
+  html +=
+    "<thead><tr><th>Name</th><th>Email</th><th>Type</th><th>Actions</th></tr></thead>";
+  html += "<tbody>";
+
+  accounts.forEach((account) => {
+    html += "<tr>";
+    html += `<td>${account.account_firstname} ${account.account_lastname}</td>`;
+    html += `<td>${account.account_email}</td>`;
+    html += `<td>${account.account_type}</td>`;
+    html += `<td>
+      <a href="/dashboard/update-user/${account.account_id}" class="edit-link">Edit</a>
+      <span>|</span>
+      <a href="/dashboard/delete-user/${account.account_id}" class="edit-link">Delete</a>
+    </td>`;
+    html += "</tr>";
+  });
+
+  html += "</tbody></table>";
+  return html;
+};
 
 module.exports = Util;

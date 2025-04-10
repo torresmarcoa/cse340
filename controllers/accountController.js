@@ -157,7 +157,6 @@ async function builUpdateView(req, res, next) {
   const account_id = req.params.account_id;
   let nav = await Util.getNav();
   const accountData = await accountModel.getAccountById(account_id);
-  console.log(account_id);
   res.render("account/update", {
     title: "Edit User Info",
     nav,

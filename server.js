@@ -15,6 +15,7 @@ const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute")
 const singleViewRoute = require("./routes/singleViewRoute")
 const accountRoute = require("./routes/accountRoute")
+const dashboardRoute = require("./routes/dashboardRoute")
 const utilities = require("./utilities/")
 const errorRoute = require("./routes/errorRoute");
 const session = require("express-session")
@@ -75,6 +76,8 @@ app.use("/inv", singleViewRoute)
 app.use("/account", accountRoute)
 // Error route 
 app.use("/error", errorRoute);
+// Dashboard route
+app.use("/dashboard", dashboardRoute);
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})

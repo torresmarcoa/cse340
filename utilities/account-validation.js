@@ -173,4 +173,70 @@ validate.checkPasswordRules = async (req, res, next) => {
   next();
 };
 
+/*  **********************************
+ *  Update Data Validation Rules for admin
+ * ********************************* */
+validate.updateRulesforAdmin = () => {
+  return [
+    body("account_firstname")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isLength({ min: 1 })
+      .withMessage("Please provide a first name."),
+    body("account_lastname")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isLength({ min: 2 })
+      .withMessage("Please provide a last name."),
+    body("account_email")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isEmail()
+      .normalizeEmail()
+      .withMessage("A valid email is required."),
+    body("account_type")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isIn(["Admin", "Employee", "Client"])
+      .withMessage("Account type must be Admin, Employee, or Client."),
+  ];
+};
+
+/* ******************************
+ * Check data and return errors or continue to update
+ * ***************************** */
+validate.checkUpdateDataForAdmin = async (req, res, next) => {
+  const {
+    account_firstname,
+    account_lastname,
+    account_email,
+    account_type,
+    account_id,
+  } = req.body;
+
+  let errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav();
+    res.render("dashboard/update-user", {
+      title: "Update User Info",
+      nav,
+      errors,
+      account_firstname,
+      account_lastname,
+      account_email,
+      account_type,
+      account_id,
+    });
+    return;
+  }
+
+  next();
+};
+
+
 module.exports = validate;

@@ -5,7 +5,12 @@
   </span>
   <div id="tools">
     <% if (locals.loggedIn) { %>
-    <a class="accountName" href="/account">Welcome <%= locals.accountFirstName %></a>
+    <a class="accountName" href="/account"
+      >Welcome <%= locals.accountFirstName %></a
+    >
+    <% if (locals.accountType === "Admin") { %>
+    <a class="accountName" href="/dashboard/admin-dashboard">/ Admin Dashboard /</a>
+    <% } %>
     <a class="logout" href="/account/logout">Logout</a>
     <% } else { %>
     <a class="account" title="Click to log in" href="/account/login"
