@@ -367,7 +367,6 @@ textarea {
 }
 
 .select {
-  
   font-size: 15px;
   padding: 0.5rem 3rem 0.5rem 3rem;
   background-color: white;
@@ -463,5 +462,60 @@ footer {
 
   .formstyle {
     width: 90%;
+  }
+
+  .account-table {
+    width: 100%;
+    margin: 0;
+    border: none;
+  }
+
+  .account-table thead {
+    display: none;
+  }
+
+  .account-table tbody tr {
+    display: block;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+  }
+
+  .account-table tbody td {
+    display: block;
+    text-align: left;
+    padding: 0.5rem;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .account-table tbody td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .select {
+    font-size: 14px;
+    padding: 0.5rem 1rem;
+    width: 100%;
+  }
+
+  .formstyle {
+    padding: 1rem;
+  }
+
+  .formbutton {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 16px;
+  }
+
+  #tools {
+    text-align: end;
   }
 }
